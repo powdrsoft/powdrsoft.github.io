@@ -35,14 +35,3 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 
-    - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-
-    - name: Clean /docs
-      run: rm -rf docs
-
-    - name: Build Hugo in /docs
-      run: cd hugo; hugo -d ../docs; touch ../docs/.nojekyll
-
