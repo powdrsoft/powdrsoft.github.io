@@ -6,6 +6,8 @@ defaultContentLanguage = "en"
 enableRobotsTXT = true
 timeZone = "Europe/Berlin"
 theme = "gallery"
+# Set the output directory
+publishDir = "../docs"
 
 [params]
   title = "My Gallery"
