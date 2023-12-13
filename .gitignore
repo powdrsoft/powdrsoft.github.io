@@ -1,0 +1,4 @@
+hugo/node_modules
+/docs
+/public
+.DS_Store
