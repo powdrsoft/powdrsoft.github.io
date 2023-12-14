@@ -3,5 +3,5 @@ hugo/node_modules
 /public
 .DS_Store
 /hugo/.hugo_build.lock
-/hugo/hugo_stats.json
-/hugo/resources
+#/hugo/hugo_stats.json
+#git /hugo/resources

@@ -1,4 +1,4 @@
-title = "Rent your dream house"
+title = "Housing"
 languageCode = "en-us"
 copyright = "© Tobias Ericsson"
 disableKinds = ["taxonomy", "term"]
@@ -11,8 +11,8 @@ publishDir = "../docs"
 timeout = 120
 
 [params]
-  title = "My Gallery"
-  description = "Example site for hugo-theme-gallery"
+  title = "Housing"
+  description = "Your home away from home"
   defaultTheme = "dark"
 
 [author]

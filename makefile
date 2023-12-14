@@ -19,7 +19,7 @@ test-target:
 build:
 	@echo BUILD $(BUILD_TARGET)
 	@mkdir -p $(BUILD_TARGET)
-	@cd hugo; hugo --baseURL "https://powdrsoft.com/"
+	@cd hugo; hugo --gc --minify
 
 .PHONY: deploy
 deploy:
