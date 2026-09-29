@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/mac/</link>
+    <description>Recent content in Mac on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Tue, 01 Feb 2022 17:40:23 +0200</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/mac/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Java on Apple M1 Mac</title>
+      <link>https://powdrsoft.gitlab.io/blog/mac/java-on-m1-mac/</link>
+      <pubDate>Tue, 01 Feb 2022 17:40:23 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/mac/java-on-m1-mac/</guid>
+      <description>How to fix problems which might occur when running Java and Spring Boot on a Mac with Apple M1 processor. Problem 1 Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to …</description>
+    </item>
+    <item>
+      <title>Docker on Mac, and Hyperkit</title>
+      <link>https://powdrsoft.gitlab.io/blog/mac/docker-on-mac/</link>
+      <pubDate>Tue, 03 Nov 2020 17:40:23 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/mac/docker-on-mac/</guid>
+      <description>Docker on Mac has an unusual architecture which makes it difficult to get a clear picture of resource consumption. Docker relies on features unique to the Linux kernel …</description>
+    </item>
+    <item>
+      <title>Mac</title>
+      <link>https://powdrsoft.gitlab.io/notes/os/mac/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/os/mac/</guid>
+      <description>Fullscreen toggle with Ctrl + Command + F Move between desktops and/or fullscreens Ctrl + -&gt; Ctrl + &lt;- How to force an app to quit on your …</description>
+    </item>
+  </channel>
+</rss>

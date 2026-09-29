@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sudo - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>sudo</h1>
+
+<h2 id="how-disable-password-authentication-so-you-dont-have-to-type-password">How disable password authentication so you don&rsquo;t have to type password</h2>
+<p>every time you want to install something</p>
+<h2 id="how-to-fix-broken-sudo---sudo-parse-error-in-etcsudoers-near-line-x">How to fix broken sudo - sudo: parse error in /etc/sudoers near line X</h2>
+<p>Use <code>pkexec</code></p>
+<pre><code>pkexec vi /etc/sudoers/...
+</code></pre>
+<h4 id="running-pkexec-without-a-graphical-agent-fails-even-with-falling-back-onto-pkttyagent">Running pkexec without a graphical agent fails even with falling back onto pkttyagent</h4>
+<p><a href="https://github.com/NixOS/nixpkgs/issues/18012">https://github.com/NixOS/nixpkgs/issues/18012</a></p>
+<p>running pkexec gives something like:</p>
+<pre><code>polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: No session for cookie
+==== AUTHENTICATION FAILED ===
+Error executing command as another user: Not authorized
+</code></pre>
+<h4 id="workaround">Workaround:</h4>
+<p>Note that to make it work, run pkttyagent in a different terminal binding to</p>
+<p>the PID of the first terminal that is running pkexec.</p>
+<p>In the first terminal run the following command to get its PID.</p>
+<pre><code>echo $$
+</code></pre>
+<p>In the second terminal run</p>
+<pre><code>pkttyagent --process PID_FROM_STEP_1
+</code></pre>
+<p>In the first terminal, do whatever you need to do with pkexec.</p>
+
+
+</article>
+
+<nav class="pager">
+<a class="prev" href="/notes/coding/static-file-server/">&larr; Static-file-server</a>
+<a class="next" href="/notes/editors/vim/">vim &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

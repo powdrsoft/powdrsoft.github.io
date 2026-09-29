@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TOC on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/toc/</link>
+    <description>Recent content in TOC on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Thu, 06 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/toc/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>What is the Goal?</title>
+      <link>https://powdrsoft.gitlab.io/blog/books/the-goal/</link>
+      <pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/books/the-goal/</guid>
+      <description>I read and have read numerous books on IT, programming, architecture, and similar. The one book I think all should read and which has had the most lasting …</description>
+    </item>
+  </channel>
+</rss>

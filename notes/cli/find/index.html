@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>find - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>find</h1>
+
+<p>Find all .jpg files in the /home and sub-directories</p>
+<pre><code>find /home -name *.jpg
+</code></pre>
+<p>Find an empty file within the current directory</p>
+<pre><code>find . -type f -empty
+</code></pre>
+<p>Find all .db files (ignoring text case)
+modified in the last 7 days by a user named exampleuser</p>
+<pre><code>find /home -user exampleuser -mtime -7 -iname &quot;.db&quot;
+</code></pre>
+<p>Find and Process Files</p>
+<pre><code>find . -name &quot;*.txt&quot; -exec chmod o+r '{}' \;
+</code></pre>
+<p>Find and Delete Files</p>
+<pre><code>find . -name &quot;*.bak&quot; -delete
+</code></pre>
+<p>Find and Process files in folder</p>
+<pre><code>find * -name pom.xml -maxdepth 1 -execdir pwd \; -execdir grep &quot;testcontainers&quot; pom.xml \;
+</code></pre>
+
+
+<p class="meta"> <a class="tag" href="/tags/linux/">linux</a> <a class="tag" href="/tags/shell/">shell</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/notes/containers/docker-compose/">&larr; Docker-compose</a>
+<a class="next" href="/notes/os/mac/">Mac &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSL-and-TLS-Certificates - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>SSL-and-TLS-Certificates</h1>
+
+<p>HTTPS uses an encryption protocol to encrypt communications. The protocol is called Transport Layer Security (TLS), although formerly it was known as Secure Sockets Layer (SSL). This protocol secures communications by using what&rsquo;s known as an asymmetric public key infrastructure.</p>
+<p>The two are tightly linked and TLS is really just the more modern, secure version of SSL. While SSL is still the dominant term on the Internet, most people really mean TLS when they say SSL, because both public versions of SSL are not secure and have long since been deprecated.</p>
+<h2 id="how-to-debug-general-opensslengine-problem---unable-to-find-valid-certification-path-to-requested-target">How to debug &ldquo;General OpenSslEngine problem - unable to find valid certification path to requested target&rdquo;</h2>
+<p>This indicates that you are unable to establish a trusted SSL connection over SSL.</p>
+<p>This issue might arise if you are using a self-signed certificate or a certificate that’s been issued by an internal certificate authority, or if your clients (e.g., browser, Java) are outdated.</p>
+<p>Possible reasons:</p>
+<ul>
+<li>
+<p>Something that happened in your Java framework installation directory has messed up its list of trusted providers. This can even be a simple version upgrade gone wrong.</p>
+</li>
+<li>
+<p>The certificate at the third-party service may not be signed by a popular root CA or it could be signed by an intermediate CA that is not present in JRE’s trusted list.</p>
+</li>
+</ul>
+<pre><code>
+❯ openssl s_client -showcerts -connect &lt;domain-name&gt;:443 2&gt;/dev/null | openssl x509 -noout -dates
+notBefore=Mar  2 13:20:42 2022 GMT
+notAfter=Mar  2 13:20:42 2023 GMT
+
+</code></pre>
+<pre><code>❯ openssl s_client -showcerts -connect &lt;domain-name&gt;:443
+CONNECTED(00000005)
+depth=0 C = SE, ST = AB, L = Stockholm, O = ..., CN = ...
+verify error:num=20:unable to get local issuer certificate
+verify return:1
+depth=0 C = SE, ST = AB, L = Stockholm, O = ..., CN = ...
+verify error:num=21:unable to verify the first certificate
+verify return:1
+...
+
+</code></pre>
+<p>Conclusion = certificate has recently changed and is broken.</p>
+<h2 id="more">More</h2>
+<p>Use ssllabs to find more info.</p>
+<pre><code>https://www.ssllabs.com/ssltest/
+https://www.ssllabs.com/ssltest/analyze.html?d=&lt;YOUR DOMAIN&gt;
+</code></pre>
+<p>Or use SSLShopper.</p>
+<pre><code>https://www.sslshopper.com/ssl-checker.html#hostname=&lt;YOUR DOMAIN&gt;
+</code></pre>
+
+
+<p class="meta"><time datetime="2023-06-01">Jun 1, 2023</time> <a class="tag" href="/tags/ssl/">SSL</a> <a class="tag" href="/tags/certificate/">Certificate</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/notes/security/self-signed-certificate/">&larr; Self-Signed-Certificate</a>
+<a class="next" href="/notes/coding/gradle/">Gradle &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/vim/</link>
+    <description>Recent content in vim on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/vim/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>vim</title>
+      <link>https://powdrsoft.gitlab.io/notes/editors/vim/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/editors/vim/</guid>
+      <description>Copy, Cut, Paste yy - Yank (copy) the current line, including the newline character. 3yy - Yank (copy) three lines, starting from the line where the cursor is …</description>
+    </item>
+  </channel>
+</rss>

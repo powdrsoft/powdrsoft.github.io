@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Certificate on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/certificate/</link>
+    <description>Recent content in Certificate on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Thu, 01 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/certificate/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Self-Signed-Certificate</title>
+      <link>https://powdrsoft.gitlab.io/notes/security/self-signed-certificate/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/security/self-signed-certificate/</guid>
+      <description>Self-signed certificates are public key certificates that are not issued by a certificate authority (CA). You’d use these certificates for development and testing. Create the certificate openssl req …</description>
+    </item>
+    <item>
+      <title>SSL-and-TLS-Certificates</title>
+      <link>https://powdrsoft.gitlab.io/notes/security/ssl-and-tls-certificates/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/security/ssl-and-tls-certificates/</guid>
+      <description>HTTPS uses an encryption protocol to encrypt communications. The protocol is called Transport Layer Security (TLS), although formerly it was known as Secure Sockets Layer (SSL). This protocol …</description>
+    </item>
+  </channel>
+</rss>

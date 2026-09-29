@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Development with K8s locally - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Development with K8s locally</h1>
+
+<p>Different ways to run &ldquo;lightweight&rdquo; K8s locally,
+and a basic measurement of how resource heavy it is.</p>
+<h2 id="kind">Kind</h2>
+<p>kind creates local multi-node Kubernetes clusters using Docker container
+nodes.</p>
+<p><a href="https://github.com/kubernetes-sigs/kind">https://github.com/kubernetes-sigs/kind</a></p>
+<div class="informalexample">
+<pre><code>brew install kind
+kind create cluster
+kind delete cluster
+</code></pre>
+</div>
+<h2 id="minikube">minikube</h2>
+<p><a href="https://minikube.sigs.k8s.io/docs/">https://minikube.sigs.k8s.io/docs/</a></p>
+<div class="informalexample">
+<pre><code>brew install minikube
+minikube start
+minikube pause
+minikube delete
+</code></pre>
+</div>
+<h2 id="k3d-k3s">k3d (k3s)</h2>
+<p>krd is k3s in docker. k3s is the lightweight Kubernetes distribution by
+Rancher: rancher/k3s.</p>
+<p><a href="https://github.com/rancher/k3d">https://github.com/rancher/k3d</a></p>
+<div class="informalexample">
+<pre><code>brew install k3d
+k3d cluster create test
+k3d cluster delete
+</code></pre>
+</div>
+<h2 id="resource-usage">Resource usage</h2>
+<p>Resource usage when using docker and K8s.</p>
+<p>Docker settings: CPU 4, mem 4 GB, swap 1 GB</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>image + (pod)</th>
+<th>CPU %</th>
+<th>Memory GB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>docker</strong></td>
+<td>-</td>
+<td>4</td>
+<td>4,7 - 6.8</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>redis</td>
+<td>7</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>redis+mongo</td>
+<td>9</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>docker-desktop with K8s</strong></td>
+<td>ca 20 k8s_XXX + (1 redis)</td>
+<td>37</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>ca 20 k8s_XXX + (10 redis)</td>
+<td>42</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>ca 20 k8s_XXX + (100 redis)</td>
+<td>71</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>docker with minikube</strong></td>
+<td>gcr.io/k8s-minikube + (1 redis)</td>
+<td>50 (80 after one hour)</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>gcr.io/k8s-minikube + (10 redis)</td>
+<td>52</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>gcr.io/k8s-minikube + (100 redis)</td>
+<td>90 (140 after one hour)</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>gcr.io/k8s-minikube + (wordsmith)</td>
+<td>100</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>docker with kind</strong></td>
+<td>kindest/node + (1 redis)</td>
+<td>55</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>kindest/node + (10 redis)</td>
+<td>61</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>kindest/node + (100 redis)</td>
+<td>90</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>docker with k3d/k3s</strong></td>
+<td>rancher/krd-proxy, rancher/krs + (1 redis)</td>
+<td>36</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>rancher/krd-proxy, rancher/krs + (10 redis)</td>
+<td>46</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>rancher/krd-proxy, rancher/krs + (100 redis)</td>
+<td>75</td>
+<td>*</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>rancher/krd-proxy, rancher/krs + (wordsmith)</td>
+<td>43</td>
+<td>*</td>
+</tr>
+</tbody>
+</table>
+<p>Adding Tekton inside one of these K8s clusters adds about 25% constant
+CPU usage.</p>
+<p>Which one is the best?</p>
+<ul>
+<li>K8s in Docker-Desktop or K3s are the least resource heavy.</li>
+</ul>
+
+
+<p class="meta"><time datetime="2020-11-03">Nov 3, 2020</time> <a class="tag" href="/tags/docker/">Docker</a> <a class="tag" href="/tags/k8s/">K8s</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/blog/k8s/docker-on-k8s/">&larr; Docker on K8s</a>
+<a class="next" href="/blog/mac/docker-on-mac/">Docker on Mac, and Hyperkit &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

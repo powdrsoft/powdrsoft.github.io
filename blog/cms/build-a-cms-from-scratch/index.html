@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build a CMS from scratch - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Build a CMS from scratch</h1>
+
+<p>Recently, during a job interview, I was asked how I would build a CMS (Content Management System) from scratch and I responded with some ideas but after sleeping on it I feel that a better response would have been to say — it depends. We need to gather more information.</p>
+<p>Before creating any plan, we should talk and listen to the people around us, especially those affected by our design decisions.</p>
+<p>We should gather more information about our content, customers, team, and environment.</p>
+<h2 id="understand-your-data">Understand your data</h2>
+<p>We know that we need to be able to store and retrieve content in the form of documents, images, videos, and perhaps audio, and also metadata about the content. We probably need an administration interface to perform CRUD (Create, Read, Update, Delete) operations. Reading the content might be open to anyone but updating it surely needs to be behind some kind of security protection.</p>
+<p>We also know that part of the content we should provide already exists, for us to fetch, in other underlying backend systems.</p>
+<p>Before deciding how to store the data, in which cloud, blob storage, file storage, or database, we should learn more about the data.</p>
+<p>Probably there are different types of data with different needs. Consider grouping the data into different buckets depending on those needs. Here are some examples of how data can be different and how that could affect the storage solution;</p>
+<p>Who is the master of the data?
+When we fetch a document from another system and store it in our system, and they later update the document in their system, or we update the document in ours, who has the correct version, which system should be updated, and how should the other system be notified?</p>
+<p>When the other system is the master of the data, the reason for storing the data in our system would most likely be for performance reasons, it would be too slow to fetch from the master.</p>
+<p>That would mean that our version is just a cached version, which means concerns about backups and high availability can be relaxed as we should be able to recreate the data from the other system when needed.</p>
+<p>Our focus here would be speed. Should it be stored in Redis or, on a CDN (Content delivery network)?</p>
+<p>When we are the master of the data, it’s more important to consider backups and high availability.</p>
+<p>Should the content be distributed across multiple databases, in different geographical regions, to increase availability?</p>
+<p>How often is content updated? Some content seldom changes and other content changes every minute. Do we need to store historical data? When content is updated, do we need to remember old versions? If so, would it make sense to consider a time series database?</p>
+<p>What security model is needed to protect the content? Is all content equally sensitive?</p>
+<p>The nature of the content will affect which type of database should be used.</p>
+<p>A SQL database like PostgreSQL is ideal for structured data with predefined schemas. Consider PostgreSQL as the default goto database. A document database like MongoDB is suited for unstructured or semi-structured data and offers flexibility and scalability. A graph database like Neo4j is designed for data with complex relationships and interconnectedness.</p>
+<h2 id="understand-your-customers">Understand your customers</h2>
+<p>Don’t decide your customer-facing API (Application Programming Interface) based on what you think your customer wants.</p>
+<p>Do you even know who they are? All those front-end developers who consume your API, and the administrators who add and update content.</p>
+<p>Talk to them! Multiple times.</p>
+<p>Maybe your REST (Representational State Transfer) API with pagination and JSON fields like createdAt, updatedBy, and similar is not exactly what they want.</p>
+<p>Maybe some fields in the response never will be used, or only in debug purposes. Then those fields should be stripped out before sending the response.</p>
+<p>Maybe there are missing fields in the response, triggering multiple different requests, which could have been avoided if we had known that they would always ask for those things in combination. Would GraphQL be a better choice?</p>
+<p>And would they like to be notified of changes via event streams on a service bus? So that they only make requests when they need to, because in most cases they already have the data cached on their side?</p>
+<p>And what kind of user interface would help the administrators? What should they be allowed to do and what should they not be allowed to do?</p>
+<h2 id="understand-your-team">Understand your team</h2>
+<p>Leverage the skills and desires of your team.</p>
+<p>The choice of programming languages and tools should not only be based on technological factors. You need buy-in from your team.</p>
+<p>If your team members are skilled in Typescript, use Typescript and so on.</p>
+<p>Encourage open communication to identify individual strengths and interests, fostering a collaborative environment where everyone can contribute their best.</p>
+<h2 id="understand-your-environment">Understand your environment</h2>
+<p>Where should you host your service?</p>
+<p>What advantages come with sticking to the same technology stack your company already uses?</p>
+<p>Can you tap into the company’s existing platform to, for instance, host your apps in a Kubernetes cluster or namespace?</p>
+<p>If the company already makes use of platform engineers to manage the platform and site-reliability engineers to handle production uptime, then leverage that.</p>
+<p>If you find the company platform is not fulfilling your needs, consider using a managed service from a software-as-a-service vendor before building and handling everything yourself.</p>
+<h2 id="iterate-and-be-agile">Iterate and be agile</h2>
+<p>This is a lot to think about but don’t get stuck in planning.</p>
+<p>Start small and deliver something fast. It doesn’t need to have all features and it doesn’t need to look like the final version.</p>
+<p>Just know that the first version is not the final version and don’t be afraid to change things, when your understanding improves.</p>
+<p>You will need many iterations to get to a good and stable product.</p>
+<p>But, try extra hard to get the customer-facing API good from the start as you don’t want to break stuff for your customers.</p>
+<p>When making changes to the API try to be backwards compatible.</p>
+<p>Consider from the start how to best inform your customers of new versions of the API and how to get them to use the latest version. It can become a nightmare if some of your customers don’t update from old versions in a timely fashion. What can you do to help them update to the latest version?</p>
+<p>If you get stuck in supporting old versions of the API forever, this will limit your options to iterate and be agile.</p>
+
+
+<p class="meta"><time datetime="2024-04-06">Apr 6, 2024</time> <a class="tag" href="/tags/cms/">CMS</a> <a class="tag" href="/tags/software-architecture/">Software Architecture</a> <a class="tag" href="/tags/software-design/">Software design</a></p>
+</article>
+
+<nav class="pager">
+
+<a class="next" href="/blog/k8s/bridge-to-kubernetes/">Bridge to Kubernetes &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

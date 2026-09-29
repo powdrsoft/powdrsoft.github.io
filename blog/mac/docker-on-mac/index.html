@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docker on Mac, and Hyperkit - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Docker on Mac, and Hyperkit</h1>
+
+<p>Docker on Mac has an unusual architecture which makes it difficult to
+get a clear picture of resource consumption. Docker relies on features
+unique to the Linux kernel like cgroups to implement containers and as a
+result, requires Linux to run. Because OSX is not Linux, Docker utilizes
+a large Linux VM, called hyperkit to run your containers.</p>
+<p>As a result of this architecture, running docker stats doesn’t tell you
+everything you need to know about resource consumption. You’ll get
+information about the footprint of your Docker containers, but not about
+hyperkit, the VM needed to run those containers. As we will see,
+hyperkit can be quite a resource hog, tending to eat more and more
+memory the longer it runs and the more containers you put on it.</p>
+<h3 id="docker-and-cpu-usage">Docker and CPU usage</h3>
+<p>When Docker consistently uses a lot of CPU cycles, and the fan is
+running loud, try switching to the latest docker-desktop version (3 is
+out now).</p>
+<p>The Latest comes with:</p>
+<ul>
+<li>
+<p>Downgraded the kernel to 4.19.121 to reduce the CPU usage of
+hyperkit. Fixes
+<a href="https://github.com/docker/for-mac/issues/5044">docker/for-mac#5044</a></p>
+</li>
+<li>
+<p>Avoid caching bad file sizes and modes when using osxfs. Fixes
+<a href="https://github.com/docker/for-mac/issues/5045">docker/for-mac#5045</a>.</p>
+</li>
+</ul>
+<p>In my case CPU usage went from 80% to 55%.</p>
+
+
+<p class="meta"><time datetime="2020-11-03">Nov 3, 2020</time> <a class="tag" href="/tags/docker/">Docker</a> <a class="tag" href="/tags/mac/">Mac</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/blog/k8s/dev-with-k8s/">&larr; Development with K8s locally</a>
+
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

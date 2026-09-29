@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gradle on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/gradle/</link>
+    <description>Recent content in Gradle on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Wed, 03 Jun 2020 17:59:39 +0200</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/gradle/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Gradle</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/gradle/</link>
+      <pubDate>Wed, 03 Jun 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/gradle/</guid>
+      <description>Publish to local Maven repository plugins { id &#39;java-gradle-plugin&#39; id &#39;maven-publish&#39; ... } gradlew publishToMavenLocal -Pversion=wip Add local Maven repository for plugins in settings.gradle pluginManagement { repositories { …</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Java on Apple M1 Mac - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Java on Apple M1 Mac</h1>
+
+<p>How to fix problems which might occur when running Java and Spring Boot on a Mac with Apple M1 processor.</p>
+<h3 id="problem-1">Problem 1</h3>
+<pre><code>Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS.
+</code></pre>
+<h3 id="how-to-fix">How to fix</h3>
+<p>Add build extension os-maven-plugin to generate <code>os.detected.classifier</code></p>
+<pre><code>&lt;build&gt;
+    &lt;extensions&gt;
+      &lt;extension&gt;
+        &lt;groupId&gt;kr.motd.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;os-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;1.7.0&lt;/version&gt;
+      &lt;/extension&gt;
+    &lt;/extensions&gt;
+&lt;/build&gt;
+</code></pre>
+<p>Add dependency <code>netty-resolver-dns-native-macos</code></p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.netty&lt;/groupId&gt;
+    &lt;artifactId&gt;netty-resolver-dns-native-macos&lt;/artifactId&gt;
+    &lt;version&gt;4.1.75.Final&lt;/version&gt;
+    &lt;classifier&gt;${os.detected.classifier}&lt;/classifier&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>Or using profiles is probably better:</p>
+<pre><code>&lt;profiles&gt;
+  &lt;profile&gt;
+    &lt;id&gt;AppleM1&lt;/id&gt;
+    &lt;activation&gt;
+      &lt;os&gt;
+        &lt;family&gt;mac&lt;/family&gt;
+        &lt;arch&gt;aarch64&lt;/arch&gt;
+      &lt;/os&gt;
+    &lt;/activation&gt;
+    &lt;dependencies&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;io.netty&lt;/groupId&gt;
+        &lt;artifactId&gt;netty-resolver-dns-native-macos&lt;/artifactId&gt;
+        &lt;version&gt;4.1.75.Final&lt;/version&gt;
+        &lt;classifier&gt;osx-aarch_64&lt;/classifier&gt;
+      &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+  &lt;/profile&gt;
+&lt;/profiles&gt;
+</code></pre>
+<h3 id="problem-2">Problem 2</h3>
+<p>Tests might fail because</p>
+<pre><code>java.lang.IllegalStateException: No Server ALPNProcessors!
+java.lang.UnsatisfiedLinkError: no conscrypt_openjdk_jni-osx-aarch_64
+</code></pre>
+<p>When using Wiremock.</p>
+<h3 id="how-to-fix-1">How to fix</h3>
+<p>Set wiremock property in application.yml</p>
+<pre><code>wiremock:
+  server:
+    httpsPort: -1
+</code></pre>
+
+
+<p class="meta"><time datetime="2022-02-01">Feb 1, 2022</time> <a class="tag" href="/tags/docker/">Docker</a> <a class="tag" href="/tags/mac/">Mac</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/blog/books/the-goal/">&larr; What is the Goal?</a>
+<a class="next" href="/blog/k8s/docker-compose-on-k8s/">Docker Compose on K8s &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

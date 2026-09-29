@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/notes/</link>
+    <description>Recent content in Notes on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Thu, 14 Mar 2024 17:59:39 +0200</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/notes/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Uniform all your projects with Task</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/taskfile/</link>
+      <pubDate>Thu, 14 Mar 2024 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/taskfile/</guid>
+      <description>Increase developer productivity and happiness by removing friction. I propose that you use Task as the common uniforming standard (wrapper) to build, test, and run your team’s application …</description>
+    </item>
+    <item>
+      <title>Self-Signed-Certificate</title>
+      <link>https://powdrsoft.gitlab.io/notes/security/self-signed-certificate/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/security/self-signed-certificate/</guid>
+      <description>Self-signed certificates are public key certificates that are not issued by a certificate authority (CA). You’d use these certificates for development and testing. Create the certificate openssl req …</description>
+    </item>
+    <item>
+      <title>SSL-and-TLS-Certificates</title>
+      <link>https://powdrsoft.gitlab.io/notes/security/ssl-and-tls-certificates/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/security/ssl-and-tls-certificates/</guid>
+      <description>HTTPS uses an encryption protocol to encrypt communications. The protocol is called Transport Layer Security (TLS), although formerly it was known as Secure Sockets Layer (SSL). This protocol …</description>
+    </item>
+    <item>
+      <title>Gradle</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/gradle/</link>
+      <pubDate>Wed, 03 Jun 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/gradle/</guid>
+      <description>Publish to local Maven repository plugins { id &#39;java-gradle-plugin&#39; id &#39;maven-publish&#39; ... } gradlew publishToMavenLocal -Pversion=wip Add local Maven repository for plugins in settings.gradle pluginManagement { repositories { …</description>
+    </item>
+    <item>
+      <title>Processes</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/processes/</link>
+      <pubDate>Tue, 03 Dec 2019 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/processes/</guid>
+      <description>Jobs Jobs are processes which are started by a shell. CTRL+Z suspends the current foreground job. bg executes job in background. jobs lists background jobs. fg brings job …</description>
+    </item>
+    <item>
+      <title>Git-submodules</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/git-submodules/</link>
+      <pubDate>Tue, 04 Jun 2019 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/git-submodules/</guid>
+      <description>Git clone including submodules git clone --recursive [URL to Git repo] Load submodules in already cloned repo git submodule update --init --recursive Pull all changes in the repo …</description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/git/</link>
+      <pubDate>Mon, 03 Jun 2019 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/git/</guid>
+      <description>Force pull git reset --hard origin/main Force push git push -f Go back 3 commits git reset --hard HEAD~3 Tig - Text-mode interface for git Jonas.github.io/tig/ sudo apt-get …</description>
+    </item>
+    <item>
+      <title>comm</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/comm/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/comm/</guid>
+      <description>The comm utility reads file1 and file2, which should be sorted lexically, and produces three text columns as output: lines only in file1; lines only in file2; and lines in both files.</description>
+    </item>
+    <item>
+      <title>dns</title>
+      <link>https://powdrsoft.gitlab.io/notes/dns/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/dns/</guid>
+      <description>nip.io Dead simple wildcard DNS for any IP Address Stop editing your etc/hosts file with custom hostname and IP address mappings. Dead simple wildcard DNS for any IP …</description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://powdrsoft.gitlab.io/notes/containers/docker/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/containers/docker/</guid>
+      <description>Go inside a running container docker exec -it &lt;containerIdOrName&gt; bash (or /bin/bash or /bin/ash) Look inside an image docker run -it --entrypoint /bin/bash &lt;imageid&gt; Stop and remove all …</description>
+    </item>
+    <item>
+      <title>Docker-compose</title>
+      <link>https://powdrsoft.gitlab.io/notes/containers/docker-compose/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/containers/docker-compose/</guid>
+      <description>docker-compose up docker-compose down docker-compose logs -f docker-compose logs -f [service] (service is not same as container, look in compose file for service names)</description>
+    </item>
+    <item>
+      <title>find</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/find/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/find/</guid>
+      <description>Find all .jpg files in the /home and sub-directories find /home -name *.jpg Find an empty file within the current directory find . -type f -empty Find all …</description>
+    </item>
+    <item>
+      <title>Mac</title>
+      <link>https://powdrsoft.gitlab.io/notes/os/mac/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/os/mac/</guid>
+      <description>Fullscreen toggle with Ctrl + Command + F Move between desktops and/or fullscreens Ctrl + -&gt; Ctrl + &lt;- How to force an app to quit on your …</description>
+    </item>
+    <item>
+      <title>rg</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/rg/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/rg/</guid>
+      <description>ripgrep (rg) recursively searches directories for a regex pattern.</description>
+    </item>
+    <item>
+      <title>rsync</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/rsync/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/rsync/</guid>
+      <description>Synchronizing files between between folders or machines.</description>
+    </item>
+    <item>
+      <title>ssh</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/ssh/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/ssh/</guid>
+      <description>SSH Port forwarding -L Specifies that the given port on the local (client) host is to be forwarded to the given host and port on the remote side. …</description>
+    </item>
+    <item>
+      <title>Static-file-server</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/static-file-server/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/static-file-server/</guid>
+      <description>How to quickly setup a static file server. Node / Npm npm install http-server -g To use it: cd D:\Folder http-server Or, like this: http-server D:\Folder Python python …</description>
+    </item>
+    <item>
+      <title>sudo</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/sudo/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/sudo/</guid>
+      <description>How disable password authentication so you don’t have to type password every time you want to install something How to fix broken sudo - sudo: parse error in …</description>
+    </item>
+    <item>
+      <title>vim</title>
+      <link>https://powdrsoft.gitlab.io/notes/editors/vim/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/editors/vim/</guid>
+      <description>Copy, Cut, Paste yy - Yank (copy) the current line, including the newline character. 3yy - Yank (copy) three lines, starting from the line where the cursor is …</description>
+    </item>
+    <item>
+      <title>watch</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/watch/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/watch/</guid>
+      <description>watch kubectl get pods -o wide watch -d uptime watch -n 5 df -h</description>
+    </item>
+    <item>
+      <title>while</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/while/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/while/</guid>
+      <description>Timeout issue with kubectl port-forward? Keep the http-connection alive by polling: while true ; do nc -vz 127.0.0.1 9817 ; sleep 120 ; done</description>
+    </item>
+    <item>
+      <title>xmlint</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/xmlint/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/xmlint/</guid>
+      <description>Parsing and formatting XML Format and read a large xml file with all the data on one line xmllint --format largefile.xml | less xmllint --xpath //screenSizeInch largefile.xml</description>
+    </item>
+    <item>
+      <title>Xubuntu</title>
+      <link>https://powdrsoft.gitlab.io/notes/os/xubuntu/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/os/xubuntu/</guid>
+      <description>installing Problem booting ubuntu [ 3.516984] bcma: Unsupported SPROM revision: 11 [ 3.517071] bcma: bus0: No SPROM available add nomodset to boot params (between quiet and splash) Problem …</description>
+    </item>
+  </channel>
+</rss>

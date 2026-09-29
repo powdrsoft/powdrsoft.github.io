@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/ssh/</link>
+    <description>Recent content in ssh on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/ssh/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>ssh</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/ssh/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/ssh/</guid>
+      <description>SSH Port forwarding -L Specifies that the given port on the local (client) host is to be forwarded to the given host and port on the remote side. …</description>
+    </item>
+  </channel>
+</rss>

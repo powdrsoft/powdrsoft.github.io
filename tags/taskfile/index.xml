@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Taskfile on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/taskfile/</link>
+    <description>Recent content in Taskfile on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Thu, 14 Mar 2024 17:59:39 +0200</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/taskfile/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Uniform all your projects with Task</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/taskfile/</link>
+      <pubDate>Thu, 14 Mar 2024 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/taskfile/</guid>
+      <description>Increase developer productivity and happiness by removing friction. I propose that you use Task as the common uniforming standard (wrapper) to build, test, and run your team’s application …</description>
+    </item>
+  </channel>
+</rss>

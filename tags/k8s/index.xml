@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K8s on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/k8s/</link>
+    <description>Recent content in K8s on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Mon, 10 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/k8s/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Bridge to Kubernetes</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/bridge-to-kubernetes/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/bridge-to-kubernetes/</guid>
+      <description>Bridge to Kubernetes redirects traffic between your connected Kubernetes cluster and your development computer. Local code and services in your Kubernetes cluster can communicate as if they’re in …</description>
+    </item>
+    <item>
+      <title>Podman</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/podman/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/podman/</guid>
+      <description>Podman, an Open Source Docker replacement. Podman Desktop, an Open Source Docker Desktop replacement, letting you avoid paying for a Docker Desktop subscription. Why? Need an easy way …</description>
+    </item>
+    <item>
+      <title>Docker Compose on K8s</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/docker-compose-on-k8s/</link>
+      <pubDate>Thu, 03 Dec 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/docker-compose-on-k8s/</guid>
+      <description>Docker Compose is currently used by millions of developers and with over 650,000 Compose files on GitHub, Compose has been widely embraced by developers because it is a …</description>
+    </item>
+    <item>
+      <title>Docker on K8s</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/docker-on-k8s/</link>
+      <pubDate>Thu, 03 Dec 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/docker-on-k8s/</guid>
+      <description>Traditional docker engine in K8s is kaput, gone. We need to build docker images another way. https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/ https://technologyconversations.com/2020/12/09/kaniko-building-container-images-in-kubernetes-without-docker/#more-4757 Different ways of building your docker containers in K8s without …</description>
+    </item>
+    <item>
+      <title>Development with K8s locally</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/dev-with-k8s/</link>
+      <pubDate>Tue, 03 Nov 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/dev-with-k8s/</guid>
+      <description>Different ways to run “lightweight” K8s locally, and a basic measurement of how resource heavy it is. Kind kind creates local multi-node Kubernetes clusters using Docker container nodes. …</description>
+    </item>
+  </channel>
+</rss>

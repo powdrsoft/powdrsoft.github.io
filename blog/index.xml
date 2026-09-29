@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/blog/</link>
+    <description>Recent content in Blog on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Sat, 06 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/blog/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Build a CMS from scratch</title>
+      <link>https://powdrsoft.gitlab.io/blog/cms/build-a-cms-from-scratch/</link>
+      <pubDate>Sat, 06 Apr 2024 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/cms/build-a-cms-from-scratch/</guid>
+      <description>Recently, during a job interview, I was asked how I would build a CMS (Content Management System) from scratch and I responded with some ideas but after sleeping …</description>
+    </item>
+    <item>
+      <title>Bridge to Kubernetes</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/bridge-to-kubernetes/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/bridge-to-kubernetes/</guid>
+      <description>Bridge to Kubernetes redirects traffic between your connected Kubernetes cluster and your development computer. Local code and services in your Kubernetes cluster can communicate as if they’re in …</description>
+    </item>
+    <item>
+      <title>Podman</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/podman/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/podman/</guid>
+      <description>Podman, an Open Source Docker replacement. Podman Desktop, an Open Source Docker Desktop replacement, letting you avoid paying for a Docker Desktop subscription. Why? Need an easy way …</description>
+    </item>
+    <item>
+      <title>What is the Goal?</title>
+      <link>https://powdrsoft.gitlab.io/blog/books/the-goal/</link>
+      <pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/books/the-goal/</guid>
+      <description>I read and have read numerous books on IT, programming, architecture, and similar. The one book I think all should read and which has had the most lasting …</description>
+    </item>
+    <item>
+      <title>Java on Apple M1 Mac</title>
+      <link>https://powdrsoft.gitlab.io/blog/mac/java-on-m1-mac/</link>
+      <pubDate>Tue, 01 Feb 2022 17:40:23 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/mac/java-on-m1-mac/</guid>
+      <description>How to fix problems which might occur when running Java and Spring Boot on a Mac with Apple M1 processor. Problem 1 Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to …</description>
+    </item>
+    <item>
+      <title>Docker Compose on K8s</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/docker-compose-on-k8s/</link>
+      <pubDate>Thu, 03 Dec 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/docker-compose-on-k8s/</guid>
+      <description>Docker Compose is currently used by millions of developers and with over 650,000 Compose files on GitHub, Compose has been widely embraced by developers because it is a …</description>
+    </item>
+    <item>
+      <title>Docker on K8s</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/docker-on-k8s/</link>
+      <pubDate>Thu, 03 Dec 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/docker-on-k8s/</guid>
+      <description>Traditional docker engine in K8s is kaput, gone. We need to build docker images another way. https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/ https://technologyconversations.com/2020/12/09/kaniko-building-container-images-in-kubernetes-without-docker/#more-4757 Different ways of building your docker containers in K8s without …</description>
+    </item>
+    <item>
+      <title>Development with K8s locally</title>
+      <link>https://powdrsoft.gitlab.io/blog/k8s/dev-with-k8s/</link>
+      <pubDate>Tue, 03 Nov 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/k8s/dev-with-k8s/</guid>
+      <description>Different ways to run “lightweight” K8s locally, and a basic measurement of how resource heavy it is. Kind kind creates local multi-node Kubernetes clusters using Docker container nodes. …</description>
+    </item>
+    <item>
+      <title>Docker on Mac, and Hyperkit</title>
+      <link>https://powdrsoft.gitlab.io/blog/mac/docker-on-mac/</link>
+      <pubDate>Tue, 03 Nov 2020 17:40:23 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/blog/mac/docker-on-mac/</guid>
+      <description>Docker on Mac has an unusual architecture which makes it difficult to get a clear picture of resource consumption. Docker relies on features unique to the Linux kernel …</description>
+    </item>
+  </channel>
+</rss>

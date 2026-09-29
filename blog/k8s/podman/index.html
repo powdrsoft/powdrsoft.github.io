@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podman - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Podman</h1>
+
+<p>Podman, an Open Source Docker replacement.</p>
+<p>Podman Desktop, an Open Source Docker Desktop replacement, letting you avoid paying for a Docker Desktop subscription.</p>
+<h2 id="why">Why?</h2>
+<p>Need an easy way to run containers locally.</p>
+<h3 id="alternatives">Alternatives</h3>
+<ul>
+<li>Docker</li>
+<li>Lima</li>
+<li>Rancher Desktop</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Brew</li>
+</ul>
+<h2 id="how">How</h2>
+<pre><code>brew install podman
+brew install podman-desktop
+</code></pre>
+<h2 id="create-and-run-kubernetes-manifests-with-podman">Create and run Kubernetes manifests with Podman</h2>
+<p>Start from &ldquo;podman run&rdquo; or from a docker-compose file.</p>
+<p>k8s/docker-compose-whoami.yaml</p>
+<pre><code>version: '3.9'
+
+services:
+  whoami:
+    image: traefik/whoami
+    command:
+       # It tells whoami to start listening on 2001 instead of 80
+       - --port=2001
+       - --name=iamfoo
+    ports:
+      - &quot;8900:2001&quot;
+</code></pre>
+<pre><code>compose -f docker-compose-whoami.yaml up -d
+curl localhost:8900  
+podman generate kube k8s-whoami-1 &gt; whoami-k8s.yaml
+</code></pre>
+<p>whoami-k8s.yaml</p>
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    io.podman.annotations.ulimit: nofile=524288:524288,nproc=7248:7248
+  creationTimestamp: &quot;2023-07-10T14:27:06Z&quot;
+  labels:
+    app: k8s-whoami-1-pod
+  name: k8s-whoami-1-pod
+spec:
+  containers:
+  - args:
+    - --port=2001
+    - --name=iamfoo
+    image: docker.io/traefik/whoami:latest
+    name: k8s-whoami-1
+    ports:
+    - containerPort: 2001
+      hostPort: 8900
+
+</code></pre>
+<pre><code>compose -f docker-compose-whoami.yaml down
+
+podman play kube whoami-k8s.yaml
+curl localhost:8900
+
+podman stop k8s-whoami-1-pod-k8s-whoami-1
+podman start k8s-whoami-1-pod-k8s-whoami-1
+</code></pre>
+
+
+<p class="meta"><time datetime="2023-07-10">Jul 10, 2023</time> <a class="tag" href="/tags/docker/">Docker</a> <a class="tag" href="/tags/k8s/">K8s</a> <a class="tag" href="/tags/podman/">Podman</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/blog/k8s/bridge-to-kubernetes/">&larr; Bridge to Kubernetes</a>
+<a class="next" href="/blog/books/the-goal/">What is the Goal? &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

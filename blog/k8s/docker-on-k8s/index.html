@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docker on K8s - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Docker on K8s</h1>
+
+<p>Traditional docker engine in K8s is kaput, gone. We need to build docker
+images another way.</p>
+<ul>
+<li>
+<p><a href="https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/">https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/</a></p>
+</li>
+<li>
+<p><a href="https://technologyconversations.com/2020/12/09/kaniko-building-container-images-in-kubernetes-without-docker/#more-4757">https://technologyconversations.com/2020/12/09/kaniko-building-container-images-in-kubernetes-without-docker/#more-4757</a></p>
+</li>
+</ul>
+<h3 id="different-ways-of-building-your-docker-containers-in-k8s-without-docker-engine">Different ways of building your docker containers in K8s without docker engine</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://docs.docker.com/develop/develop-images/build_enhancements/">BuildKit</a></strong></td>
+<td>DOCKER_BUILDKIT=1 docker build .</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong><a href="https://podman.io/">Buildah and Podman</a></strong></td>
+<td>Docker Compose in the K8s cloud</td>
+<td>developed by RedHat</td>
+</tr>
+<tr>
+<td><strong><a href="https://github.com/GoogleContainerTools/kaniko">kaniko</a></strong></td>
+<td>Build container images from a Dockerfile, inside a container or Kubernetes cluster</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong><a href="https://github.com/rancher/k3c">k3c</a></strong></td>
+<td>Docker for Kubernetes (to use with k3s)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong><a href="https://dev.to/schoren/create-container-images-with-bazel-47am">Bazel</a></strong></td>
+<td>Google’s generic build system. <code>rules_docker</code> can build Docker images, but equivalent of <code>RUN</code> instruction is intentionally omitted due to poor reproducibility</td>
+<td>no Dockerfile needed</td>
+</tr>
+</tbody>
+</table>
+<p>Which one is the best?</p>
+<ul>
+<li>Current recommendation is BuildKit or Kaniko.</li>
+</ul>
+
+
+<p class="meta"><time datetime="2020-12-03">Dec 3, 2020</time> <a class="tag" href="/tags/docker/">Docker</a> <a class="tag" href="/tags/k8s/">K8s</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/blog/k8s/docker-compose-on-k8s/">&larr; Docker Compose on K8s</a>
+<a class="next" href="/blog/k8s/dev-with-k8s/">Development with K8s locally &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

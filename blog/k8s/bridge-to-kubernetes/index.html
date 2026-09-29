@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridge to Kubernetes - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Bridge to Kubernetes</h1>
+
+<p>Bridge to Kubernetes redirects traffic between your connected Kubernetes cluster and your development computer. Local code and services in your Kubernetes cluster can communicate as if they&rsquo;re in the same Kubernetes cluster.</p>
+<h2 id="why">Why?</h2>
+<p>Need an easy way to connect a local running service to a Kubernetes cluster for ease of testing.</p>
+<h3 id="alternatives">Alternatives</h3>
+<ul>
+<li>DevSpace</li>
+<li>Tilt</li>
+<li>Skaffold</li>
+<li>Telepresence</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Visual Studio Code extension Bridge to Kubernetes</li>
+</ul>
+<h2 id="how">How</h2>
+<pre><code>CMD + SHIFT + P -&gt; Bridge to Kubernetes: Configure -&gt; Choose a service...
+
+CMD + SHIFT + P -&gt; Bridge to Kubernetes: Open -&gt; Connect to the cluster
+</code></pre>
+<p>Now all requests to the selected service will be redirected to your local machine.</p>
+<pre><code>CMD + SHIFT + P -&gt; Bridge to Kubernetes: Open -&gt; Disconnect current session
+</code></pre>
+<p>Configuration is saved in ./vscode/tasks.json in your project.</p>
+<p>/etc/hosts is updated with all services running in the same namespace.</p>
+
+
+<p class="meta"><time datetime="2023-07-10">Jul 10, 2023</time> <a class="tag" href="/tags/k8s/">K8s</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/blog/cms/build-a-cms-from-scratch/">&larr; Build a CMS from scratch</a>
+<a class="next" href="/blog/k8s/podman/">Podman &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

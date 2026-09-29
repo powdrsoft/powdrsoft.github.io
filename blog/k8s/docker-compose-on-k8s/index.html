@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docker Compose on K8s - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Docker Compose on K8s</h1>
+
+<p>Docker Compose is currently used by millions of developers and with over
+650,000 Compose files on GitHub, Compose has been widely embraced by
+developers because it is a simple cloud and platform-agnostic way of
+defining multi-container based applications.</p>
+<h1 id="problem-statement">Problem statement</h1>
+<p>Today docker-compose is used on local development environments and in
+integration tests on physical Jenkins nodes. Moving almost everything to
+Kubernetes means that either we must make docker-compose work without
+hassle on the Kubernetes platform or agree upon another preferred way of
+working.</p>
+<p>Important to take into consideration are:</p>
+<ul>
+<li>
+<p><strong>Testability:</strong> Support for Ephemeral deploys.</p>
+</li>
+<li>
+<p><strong>Simplicity:</strong> Hide complex and technical implementation details
+for developers behind a simple to use api with a lot of sensible
+default values.</p>
+<ol>
+<li>Because developers should focus on business logic and not build and
+deploy scaffolding.</li>
+<li>Because with an api as an abstraction layer on top we can be
+flexible and replace underlying implementations like Jenkins,
+docker-compose and kubernetes without developers having to make a
+change.</li>
+</ol>
+</li>
+<li>
+<p><strong>Reproducibility:</strong> Make different environments as similar as
+possible to each other.</p>
+</li>
+<li>
+<p><strong>Delivery speed:</strong> Provide a smooth and quick process from code
+commit to production.</p>
+</li>
+</ul>
+<p>The idea to make all environments, including local dev environments, as
+similar as possible is very appealing. The reason for making all environments
+as similar as possible is to
+minimize bugs and minimize time spent in trouble shooting due to
+differences in environments.</p>
+<p>Production, staging, QA environments all run on the Kubernetes
+platform, therefore, in order to be similar, local dev environment should
+also run on kubernetes.</p>
+<p>This can be achieved by:</p>
+<ul>
+<li>
+<p>Running Kubernetes on docker-desktop or mini-kube or similar.</p>
+</li>
+<li>
+<p>Extending local-dev environment to be developer laptop + Kubernetes
+namespace in &ldquo;the cloud&rdquo;.</p>
+</li>
+</ul>
+<p>Sadly, this approach will almost certainly be:</p>
+<ul>
+<li>
+<p>Heavy on resources, all developer laptops are not beasts.</p>
+</li>
+<li>
+<p>Complex for the average developer, all developers
+should not have to know or care about kubernetes.</p>
+</li>
+</ul>
+<p>For numerous developers we should provide a solution where their dev
+environments are:</p>
+<ul>
+<li>
+<p>Lightweight</p>
+</li>
+<li>
+<p>Simple to use (hide unwanted complexity)</p>
+</li>
+</ul>
+<h2 id="requirements-on-the-development-environment">Requirements (on the development environment)</h2>
+<p>First, let’s define the average developer as:</p>
+<p><em>A fairly new frontend-developer who is great at javascript and React
+and has little knowledge or interest in backend-code, Kubernetes and
+deploy-pipelines.</em></p>
+<p>The average developer should:</p>
+<ul>
+<li>
+<p>Be able to work offline</p>
+</li>
+<li>
+<p>Not need deep knowledge in Kubernetes.</p>
+</li>
+<li>
+<p>Be able to spin up (mock) auxiliary services like backend
+api/service and databases.</p>
+</li>
+<li>
+<p>Not need a very powerful pc.</p>
+</li>
+</ul>
+<h1 id="options">Options</h1>
+<ul>
+<li>
+<p>Let the developers do what ever they want on their machines but do
+not try to reuse it. Accept that developer setup is very different
+from other environments.</p>
+</li>
+<li>
+<p>Try to reuse docker-compose files created by developers to also run
+integration-tests in deploy and build pipelines.</p>
+</li>
+<li>
+<p>Try to reuse docker-compose files created by developers to also run
+integration-tests in deploy and build pipelines and to deploy to
+different (ephemeral) environments.</p>
+</li>
+<li>
+<p>Deprecate the use of docker-compose files for developers and
+introduce another lightweight format which under the hood can work
+well in offline mode on a developer machine and be the base for a
+production deploy.</p>
+</li>
+<li>
+<p>Run Kubernetes locally on docker-desktop or mini-kube or similar.</p>
+</li>
+<li>
+<p>Extend local-dev environment to be developer laptop + Kubernetes
+namespace in &ldquo;the cloud&rdquo;. More about this approach here:</p>
+<ul>
+<li><a href="https://www.devopsparadox.com/episodes/its-past-time-to-abandon-docker-compose-91/">https://www.devopsparadox.com/episodes/its-past-time-to-abandon-docker-compose-91/</a></li>
+<li><a href="https://open.spotify.com/episode/2aXc3RvJG2aZ4WT0TjgCX9">https://open.spotify.com/episode/2aXc3RvJG2aZ4WT0TjgCX9</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="current-state-of-docker-compose-in-k8s">Current state of Docker Compose in K8s</h2>
+<p>It’s possible to use different tools to convert docker-compose files to
+kube-configs.</p>
+<h2 id="how-to-convert-and-use-your-docker-compose-files-in-k8s">How to convert and use your docker-compose files in K8s</h2>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://kompose.io/">Kompose</a></strong></td>
+<td>Translates docker-compose to kubectl configs</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong><a href="https://blimpup.io/">Blimp</a></strong></td>
+<td>Docker Compose, (and your dev environment) in the K8s cloud</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong><a href="https://github.com/docker/compose-on-kubernetes">Compose on Kubernetes</a></strong></td>
+<td>Deploy Docker Compose files onto a Kubernetes cluster</td>
+<td>no progress this year (2020)</td>
+</tr>
+<tr>
+<td><strong><a href="https://www.docker.com/blog/docker-app-and-cnab/">Docker App and CNAB</a></strong></td>
+<td>Build Cloud Native Application Bundles (CNAB) from docker-compose</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong><a href="https://github.com/containers/podman-compose">Podman Compose</a></strong></td>
+<td>An implementation of docker-compose with Podman backend</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kompose">Kompose</h3>
+<p>Simplify your development process with Docker Compose and then deploy
+your containers to a production cluster Convert your docker-compose.yaml
+with one simple command <code>kompose convert</code>.</p>
+<p>kompose is a convenience tool to go from local Docker development to
+managing your application with Kubernetes. Transformation of the Docker
+Compose format to Kubernetes resources manifest may not be exact, but it
+helps tremendously when first deploying an application on Kubernetes.</p>
+<p><a href="https://kompose.io/">https://kompose.io/</a></p>
+<h3 id="blimp">Blimp</h3>
+<p>Blimp is a drop-in replacement for Docker Compose that enables
+development in the cloud. Laptop struggling to keep up? It’s time to
+<code>blimp up</code> and get your Docker containers in the cloud.</p>
+<p>Blimp is for developers working with containers that use Docker Compose
+to run their dependencies locally, even if they’re using Kubernetes in
+production. Blimp runs on Kubernetes in the backend; however, the
+interface it exposes to developers looks and feels like Docker Compose.
+As a result, it may be easier to start using for Developers that aren’t
+familiar with Kubernetes.</p>
+<p>Blimp runs entirely in your own Kubernetes cluster. No requests are made
+to external Blimp servers.</p>
+<p>Your containers are isolated in their own Kubernetes namespace.</p>
+<p><a href="https://blimpup.io/">https://blimpup.io/</a></p>
+<p><strong>Which one is the best?</strong></p>
+<ul>
+<li>Recommendation is Kompose, but it is not the &ldquo;silver bullet&rdquo;.</li>
+</ul>
+<h4 id="compose-on-kubernetes">Compose on Kubernetes</h4>
+<p>Compose on Kubernetes allows you to deploy Docker Compose files onto a
+Kubernetes cluster. <a href="https://github.com/docker/compose-on-kubernetes">https://github.com/docker/compose-on-kubernetes</a> no
+progress this year (2020)</p>
+<h4 id="docker-app--cnab">Docker App &amp; CNAB</h4>
+<p>Build CNAP bundles from docker-compose.</p>
+<p><a href="https://www.docker.com/blog/docker-app-and-cnab/">https://www.docker.com/blog/docker-app-and-cnab/</a></p>
+<p><strong>Docker App</strong></p>
+<p><a href="https://www.docker.com/products/docker-app">https://www.docker.com/products/docker-app</a> Docker App is a way to
+define, package, execute, and manage distributed applications and
+coupled services as a single, immutable object.</p>
+<p><strong>CNAB</strong></p>
+<p>Cloud Native Application Bundles (CNAB) are a package format
+specification that describes a technology for bundling, installing, and
+managing distributed applications, that are by design, cloud agnostic.
+<a href="https://cnab.io/">https://cnab.io/</a> <a href="https://github.com/cnabio/cnab-spec">https://github.com/cnabio/cnab-spec</a></p>
+<h1 id="the-future-of-docker-compose">The future of Docker Compose</h1>
+<p><code>docker-compose</code> is no longer only a stand-alone tool, it has moved
+inside docker. Instead of writing
+<code>docker-compose you write `docker compose</code>.</p>
+<p>By using <code>docker context</code> to switch context, it’s possible to use the
+same <code>docker compose up</code> on Azure cloud or to create Amazon ec2
+instances.</p>
+<p>Docker has created a new open community to develop the
+Compose-Specification.</p>
+<ul>
+<li>
+<p><a href="https://www.docker.com/blog/announcing-the-compose-specification/">https://www.docker.com/blog/announcing-the-compose-specification/</a></p>
+</li>
+<li>
+<p><a href="https://compose-spec.io/">https://compose-spec.io/</a></p>
+</li>
+<li>
+<p><a href="https://www.infoq.com/news/2020/05/docker-compose-spec/">https://www.infoq.com/news/2020/05/docker-compose-spec/</a></p>
+</li>
+<li>
+<p><a href="https://morioh.com/p/d0c3162b6f94">https://morioh.com/p/d0c3162b6f94</a></p>
+</li>
+</ul>
+<p>The intention is that the Compose-Specification/API can be used with
+different backend technologies to describe (parts of) multiple
+environments, switched between by using <code>docker context</code>.</p>
+<p><code>docker compose</code> contains things that developers care about. It does not
+aim to be the whole description of production, just the developer-facing
+pieces.</p>
+<p><strong>This is not ready for us to use, but it will be interesting to follow
+and see what happens here.</strong></p>
+<p><a href="/blog/k8s/dev-with-k8s">Development with K8s locally</a></p>
+
+
+<p class="meta"><time datetime="2020-12-03">Dec 3, 2020</time> <a class="tag" href="/tags/docker/">Docker</a> <a class="tag" href="/tags/k8s/">K8s</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/blog/mac/java-on-m1-mac/">&larr; Java on Apple M1 Mac</a>
+<a class="next" href="/blog/k8s/docker-on-k8s/">Docker on K8s &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

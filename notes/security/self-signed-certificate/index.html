@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-Signed-Certificate - Powdrsoft Solutions AB</title>
+<link rel="icon" href="/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar&family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Powdrsoft Solutions AB" href="/index.xml">
+<script src="/js/search.js" defer></script>
+</head>
+<body>
+<header>
+<nav>
+<a class="brand" href="/">Powdrsoft Solutions AB</a>
+<form role="search"><input id="search" type="search" placeholder="Search" aria-label="Search" autocomplete="off"><ul id="results" hidden></ul></form>
+<ul>
+<li><a href="/notes/">Notes</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/tags/">Tags</a></li>
+<li><a href="/about/">About</a></li>
+</ul>
+</nav>
+</header>
+<main>
+
+<article>
+<h1>Self-Signed-Certificate</h1>
+
+<p>Self-signed certificates are public key certificates that are not issued by a certificate authority (CA). You’d use these certificates for development and testing.</p>
+<h2 id="create-the-certificate">Create the certificate</h2>
+<pre><code>openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=your-domain-name Inc./CN=your-domain-name' -keyout your-domain-name.key -out your-domain-name.crt
+
+openssl req -out your-domain-name.csr -newkey rsa:2048 -nodes -keyout your-domain-name.key -subj &quot;/CN=your-domain-name/O=Test SAM from your-domain-name&quot;
+
+openssl x509 -req -days 365 -CA your-domain-name.crt -CAkey your-domain-name.key -set_serial 0 -in your-domain-name.csr -out your-domain-name.crt
+</code></pre>
+<h2 id="use-the-certificate-in-istio-ingress-gateway">Use the certificate in Istio ingress gateway</h2>
+<p>The secret with certificates must be called istio-ingressgateway-certs, and we have to deploy it to the istio-system namespace.
+That way, the Istio ingress gateway will load the secret automatically.</p>
+<pre><code>kubectl delete secret istio-ingressgateway-certs -n istio-system
+kubectl create secret tls istio-ingressgateway-certs -n istio-system --key your-domain-name.key --cert your-domain-name.crt
+</code></pre>
+<p>Update the Gateway resource to use the certificate and private key:</p>
+<pre><code>cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: public-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      # These are coming from the istio-ingressgateway-certs secret
+      serverCertificate: /etc/istio/ingressgateway-certs/tls.crt
+      privateKey: /etc/istio/ingressgateway-certs/tls.key
+    hosts:
+    - test.your-domain-name
+EOF
+
+</code></pre>
+<h2 id="how-to-get-your-java-app-to-accept-the-certificate">How to get your Java app to accept the certificate</h2>
+<p>Solving Java HTTPS connection with SSL certificate Error:</p>
+<pre><code>PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+</code></pre>
+<h3 id="import-the-cert-to-the-java-keystore">Import the cert to the Java Keystore</h3>
+<pre><code>sudo keytool -importcert -file your-domain-name.crt -noprompt -alias test.your-domain-name.cert -storepass changeit -keystore $JAVA_HOME/lib/security/cacerts
+</code></pre>
+<h3 id="how-to-add-the-certificate-to-a-distroless-docker-image">How to add the certificate to a distroless docker image</h3>
+<p>The only way I got working was to create a new docker images and on create time run the keytool command.</p>
+<pre><code>FROM gcr.io/distroless/java17-debian12:latest
+
+# Create a directory to store the CA certificate
+WORKDIR /certs
+
+# Copy your CA certificate into the image
+COPY certs/your-domain-name.crt /certs/your-domain-name.crt
+
+RUN [\
+ &quot;/usr/lib/jvm/java-17-openjdk-amd64/bin/keytool&quot;,\
+ &quot;-import&quot;,\
+ &quot;-trustcacerts&quot;,\
+ &quot;-cacerts&quot;,\
+ &quot;-noprompt&quot;,\
+ &quot;-storepass&quot;,\
+ &quot;changeit&quot;,\
+ &quot;-alias&quot;,\
+ &quot;my&quot;,\
+ &quot;-file&quot;,\
+ &quot;/certs/your-domain-name.crt&quot;\
+]
+</code></pre>
+
+
+<p class="meta"><time datetime="2023-06-01">Jun 1, 2023</time> <a class="tag" href="/tags/ssl/">SSL</a> <a class="tag" href="/tags/certificate/">Certificate</a></p>
+</article>
+
+<nav class="pager">
+<a class="prev" href="/notes/coding/taskfile/">&larr; Uniform all your projects with Task</a>
+<a class="next" href="/notes/security/ssl-and-tls-certificates/">SSL-and-TLS-Certificates &rarr;</a>
+</nav>
+
+
+</main>
+<footer>
+<ul class="icons">
+<li><a href="mailto:powdrsoft@gmail.com" title="Email" aria-label="Email"><svg><use href="/img/icons.svg#envelope"/></svg></a></li>
+<li><a href="https://github.com/tobias-ericsson" title="GitHub" aria-label="GitHub"><svg><use href="/img/icons.svg#github"/></svg></a></li>
+<li><a href="https://twitter.com/teericsson" title="Twitter" aria-label="Twitter"><svg><use href="/img/icons.svg#twitter"/></svg></a></li>
+<li><a href="https://linkedin.com/in/tobiasericsson" title="LinkedIn" aria-label="LinkedIn"><svg><use href="/img/icons.svg#linkedin"/></svg></a></li>
+<li><a href="/index.xml" title="RSS" aria-label="RSS"><svg><use href="/img/icons.svg#rss"/></svg></a></li>
+</ul>
+<p>Tobias Ericsson &bull; 2026 &bull; <a href="/">Powdrsoft Solutions AB</a></p>
+</footer>
+</body>
+</html>
+

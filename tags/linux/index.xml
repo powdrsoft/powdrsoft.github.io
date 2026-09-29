@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/linux/</link>
+    <description>Recent content in linux on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/linux/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>find</title>
+      <link>https://powdrsoft.gitlab.io/notes/cli/find/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/cli/find/</guid>
+      <description>Find all .jpg files in the /home and sub-directories find /home -name *.jpg Find an empty file within the current directory find . -type f -empty Find all …</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/</link>
+    <description>Recent content in Tags on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Sat, 06 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Docker</title>
+      <link>https://powdrsoft.gitlab.io/tags/docker/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K8s</title>
+      <link>https://powdrsoft.gitlab.io/tags/k8s/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/k8s/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mac</title>
+      <link>https://powdrsoft.gitlab.io/tags/mac/</link>
+      <pubDate>Tue, 01 Feb 2022 17:40:23 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/mac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Certificate</title>
+      <link>https://powdrsoft.gitlab.io/tags/certificate/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/certificate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://powdrsoft.gitlab.io/tags/git/</link>
+      <pubDate>Tue, 04 Jun 2019 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSL</title>
+      <link>https://powdrsoft.gitlab.io/tags/ssl/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/ssl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Book Recommendations</title>
+      <link>https://powdrsoft.gitlab.io/tags/book-recommendations/</link>
+      <pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/book-recommendations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CMS</title>
+      <link>https://powdrsoft.gitlab.io/tags/cms/</link>
+      <pubDate>Sat, 06 Apr 2024 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/cms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GNU Make</title>
+      <link>https://powdrsoft.gitlab.io/tags/gnu-make/</link>
+      <pubDate>Thu, 14 Mar 2024 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/gnu-make/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gradle</title>
+      <link>https://powdrsoft.gitlab.io/tags/gradle/</link>
+      <pubDate>Wed, 03 Jun 2020 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/gradle/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>linux</title>
+      <link>https://powdrsoft.gitlab.io/tags/linux/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Podman</title>
+      <link>https://powdrsoft.gitlab.io/tags/podman/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/podman/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>shell</title>
+      <link>https://powdrsoft.gitlab.io/tags/shell/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software Architecture</title>
+      <link>https://powdrsoft.gitlab.io/tags/software-architecture/</link>
+      <pubDate>Sat, 06 Apr 2024 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/software-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software design</title>
+      <link>https://powdrsoft.gitlab.io/tags/software-design/</link>
+      <pubDate>Sat, 06 Apr 2024 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/software-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ssh</title>
+      <link>https://powdrsoft.gitlab.io/tags/ssh/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Task</title>
+      <link>https://powdrsoft.gitlab.io/tags/task/</link>
+      <pubDate>Thu, 14 Mar 2024 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/task/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Taskfile</title>
+      <link>https://powdrsoft.gitlab.io/tags/taskfile/</link>
+      <pubDate>Thu, 14 Mar 2024 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/taskfile/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Theory of Constraints</title>
+      <link>https://powdrsoft.gitlab.io/tags/theory-of-constraints/</link>
+      <pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/theory-of-constraints/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TOC</title>
+      <link>https://powdrsoft.gitlab.io/tags/toc/</link>
+      <pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/toc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>vim</title>
+      <link>https://powdrsoft.gitlab.io/tags/vim/</link>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/tags/vim/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

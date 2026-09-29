@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Powdrsoft Solutions AB</title>
+    <link>https://powdrsoft.gitlab.io/tags/git/</link>
+    <description>Recent content in Git on Powdrsoft Solutions AB</description>
+    <language>en-us</language>
+    <managingEditor>powdrsoft@gmail.com (Tobias Ericsson)</managingEditor>
+    <webMaster>powdrsoft@gmail.com (Tobias Ericsson)</webMaster>
+    <lastBuildDate>Tue, 04 Jun 2019 17:59:39 +0200</lastBuildDate>
+    <atom:link href="https://powdrsoft.gitlab.io/tags/git/index.xml" rel="self" type="application/rss+xml"></atom:link>
+    <item>
+      <title>Git-submodules</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/git-submodules/</link>
+      <pubDate>Tue, 04 Jun 2019 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/git-submodules/</guid>
+      <description>Git clone including submodules git clone --recursive [URL to Git repo] Load submodules in already cloned repo git submodule update --init --recursive Pull all changes in the repo …</description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://powdrsoft.gitlab.io/notes/coding/git/</link>
+      <pubDate>Mon, 03 Jun 2019 17:59:39 +0200</pubDate>
+      <author>powdrsoft@gmail.com (Tobias Ericsson)</author>
+      <guid>https://powdrsoft.gitlab.io/notes/coding/git/</guid>
+      <description>Force pull git reset --hard origin/main Force push git push -f Go back 3 commits git reset --hard HEAD~3 Tig - Text-mode interface for git Jonas.github.io/tig/ sudo apt-get …</description>
+    </item>
+  </channel>
+</rss>
